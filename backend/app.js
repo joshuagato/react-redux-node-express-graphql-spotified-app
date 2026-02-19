@@ -112,10 +112,12 @@ if (process.env.NODE_ENV === "production") {
 }
 
 // Connecting the mysql database using sequelize
+const PORT = 4004;
 sequelize
     .sync()
     .then((result) => {
-        app.listen(4004);
-        console.log("Running on Port: ", 4004);
+        app.listen(PORT);
+        console.log("Running on Port: ", PORT);
+        console.log(`Running on: http://localhost:${PORT}`);
     })
     .catch((err) => console.log(err));
